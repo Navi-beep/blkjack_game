@@ -8,11 +8,9 @@ class Card:
         self.suit = suit
         self.rank = rank
     
-    def __repr__(self): 
-        return self.rank + ' of ' + self.suit
-
-    def __str__(self): 
-       return self.rank + ' of ' + self.suit
+    def __repr__(self):
+        show = '<['+self.rank +' ' 'of' + self.suit + ']>'
+        return show 
 
     def get_card_value(self):
         if isinstance(self.rank, int):
@@ -30,7 +28,6 @@ class Blackjack:
         suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
         deck = [Card(suit,rank) for suit in suits for rank in ranks]
-        #random.shuffle(deck)
         return deck
 
 
@@ -80,7 +77,7 @@ def hit_or_stand(deck, hand):
 
 def show_first_cards(player, dealer):
     print("\nDealer hand: ")
-    print("--first card hidden!--")
+    print("~first card hidden!~")
     print("", dealer.cards[1])
     print("\nPlayer hand: ",*player.cards)
 
