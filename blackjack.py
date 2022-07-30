@@ -9,7 +9,7 @@ class Card:
         self.rank = rank
     
     def __repr__(self):
-        show = '<['+self.rank +' ' 'of' + self.suit + ']>'
+        show = '<['+self.rank +' ' 'of' ' ' + self.suit + ']>'
         return show 
 
     def get_card_value(self):
