@@ -59,3 +59,4 @@ def hit(deck,hand):
     
 
 def hit_or_stand(deck, hand):
+    pass
