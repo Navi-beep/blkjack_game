@@ -75,5 +75,47 @@ def hit_or_stand(deck, hand):
         break
 
 
+def show_first_cards(player, dealer):
+    print("\nDealer hand: ")
+    print("--first card hidden!--")
+    print(" ", dealer.cards[1])
+    print("\nPlayer hand: ",*player.cards)
+
+
+def show_rest_of_cards(player, dealer):
+    print("\nDealer hand: ", *dealer.cards)
+    print("Dealer hand: ", *dealer.value)
+    print("\nPlayer's Hand: ", *player.cards)
+    print("\nPlayer hand: ",*player.value)
+
+
+def player_bust(player, dealer):
+    print("player busts! you lose!!!")
+
+
+def dealer_bust(player, dealer):
+    print("dealer busts! you win!!! great success! ")
+
+
+def player_wins(player, dealer):
+    print("You win!!")
+
+
+def dealer_wins(player, dealer):
+    print("dealer wins!! Nobody beats sub-zero")
+
+def tie(player, dealer):
+    print("It's a push! Nobody wins :(")
+
+
+
+
+
+
+
+
+
+
+
 
 
