@@ -1,16 +1,61 @@
+import random
+
+
+go = True
+
 class Blackjack:
-    pass
+    def __init__(self):
+        self.deck = self.create_deck()
 
-class cards:
-    pass
-
-class dealer:
-    pass
-
-class player:
-    pass
-
-
-#set up while loop, if player wants to hit, add to cards up to 21. 
+    def create_deck(self):
+        suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+        deck = [Card(suit,rank) for suit in suits for rank in ranks]
+        random.shuffle(deck)
+        return deck
 
 
+    def shuffle(self):
+        random.shuffle(self.deck)  
+
+    def deal(self):
+        one_card = self.deck.pop()
+        return one_card
+
+class Card:
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    
+    def __str__(self):
+        return self.rank + ' of ' + self.suit
+
+    
+    def get_card_value(self):
+        if isinstance(self.rank, int):
+            return self.rank
+        elif self.rank in {'J', 'K', 'q'}:
+            return 10
+        else:
+            return 11
+
+
+class Hand:
+
+    def __init__(self):
+        self.cards = []
+        self.value = 0
+        self.aces = 0
+
+    def add_card(self, card):
+        self.cards.append(card)
+        values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
+         '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
+        self.value += values[card.rank]
+
+
+def hit(deck,hand):
+    hand.add_card(deck.deal())
+    
+
+def hit_or_stand(deck, hand):
