@@ -27,11 +27,10 @@ class Blackjack:
     def create_deck(self):
         suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-        #deck = [Card]
-        #for suit in suits:
-         #   for rank in ranks:
-         #       deck.append[Card(suit,rank)]
-        deck = [Card(suit,rank) for suit in suits for rank in ranks]
+        deck = []
+        for suit in suits:
+           for rank in ranks:
+                deck.append(Card(suit,rank))
         return deck 
 
 
