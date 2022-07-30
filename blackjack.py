@@ -27,8 +27,12 @@ class Blackjack:
     def create_deck(self):
         suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+        #deck = [Card]
+        #for suit in suits:
+         #   for rank in ranks:
+         #       deck.append[Card(suit,rank)]
         deck = [Card(suit,rank) for suit in suits for rank in ranks]
-        return deck
+        return deck 
 
 
     def truffle_shuffle(self):
@@ -36,7 +40,7 @@ class Blackjack:
 
     def deal(self):
         one_card = self.deck.pop()
-        return one_card
+        return one_card 
 
 class Hand:
 
@@ -161,7 +165,7 @@ while run:
                 player_bust(player_cards, dealer_cards)
 
     
-    start_new_session = input("Do you wanna play this game again??? Hit 'y' or 'n' ")
+    start_new_session = input("Do you wanna play this game again??? Hit 'y' or 'q' to quit game ")
     if start_new_session == 'y':
         run = True
         continue
