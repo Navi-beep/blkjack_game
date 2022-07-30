@@ -133,7 +133,9 @@ while run:
         show_rest_of_cards(player_cards, dealer_cards)
 
         if player_cards.value == 21:
+            print('Blackjack!!!!')
             player_wins(player_cards, dealer_cards)
+            
 
         elif player_cards.value > 21:
             player_bust(player_cards, dealer_cards)
