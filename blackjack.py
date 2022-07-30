@@ -1,7 +1,7 @@
 import random
 
 
-go = True
+run = True
 
 class Blackjack:
     def __init__(self):
@@ -27,7 +27,7 @@ class Card:
         self.suit = suit
         self.rank = rank
     
-    def __str__(self):
+    def __str__(self): 
         return self.rank + ' of ' + self.suit
 
     
@@ -59,4 +59,21 @@ def hit(deck,hand):
     
 
 def hit_or_stand(deck, hand):
-    pass
+    while True:
+        response = input("What do you want to do? hit or stand? Press 'h' or 's': ")
+
+        if response == 'h':
+            hit(deck, hand)
+
+        elif response == 's':
+            print("You are standing, it is the Dealer's turn to go!")
+            run = False
+
+        else:
+            continue
+
+        break
+
+
+
+
