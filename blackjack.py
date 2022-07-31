@@ -12,7 +12,7 @@ class Card:
         show = '<['+self.rank +' ' 'of' ' ' + self.suit + ']>'
         return show 
 
-class Blackjack:
+class Makin_da_deck:
     def __init__(self):
         self.deck = self.create_deck()
 
@@ -101,7 +101,7 @@ def tie(player, dealer):
 
 while run:
     
-    deck = Blackjack()
+    deck = Makin_da_deck()
     deck.truffle_shuffle()
 
     player_cards = Hand()
