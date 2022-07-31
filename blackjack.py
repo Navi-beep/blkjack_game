@@ -158,6 +158,6 @@ while run:
         run = True
         continue
 
-    else: 
+    elif start_new_session == 'q': 
         print("Have a great day! No more gambling. Go home. Go hang out with your cat or something.\n")
         
