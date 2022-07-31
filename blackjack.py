@@ -71,17 +71,13 @@ def hit_or_stand(deck, hand):
 
 
 def show_first_cards(player, dealer):
-    print("\nDealer hand: ")
-    print("~first card hidden!~")
-    print("", dealer.cards[1])
+    print("\nDealer hand: ~first card hidden!~", dealer.cards[1])
     print("\nPlayer hand: ",*player.cards)
 
 
 def show_rest_of_cards(player, dealer):
-    print("\nDealer hand: ", *dealer.cards)
-    print("Dealer hand: ", dealer.value)
-    print("\nPlayer hand: ", *player.cards)
-    print("Player hand: ",player.value)
+    print("\nDealer hand: ", *dealer.cards, dealer.value)
+    print("Player hand:", *player.cards, player.value)
 
 
 def player_bust(player, dealer):
@@ -141,6 +137,7 @@ while run:
             show_rest_of_cards(player_cards, dealer_cards)
 
             if dealer_cards.value == 21:
+                print('Blackjack!, but not for you!')
                 dealer_wins(player_cards, dealer_cards)
 
             elif dealer_cards.value > 21:
