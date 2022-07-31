@@ -96,7 +96,7 @@ def dealer_wins(player, dealer):
     print("dealer wins!! Nobody beats sub-zero")
 
 def tie(player, dealer):
-    print("It's a push! Nobody wins :(")
+    print("It's a push! Nobody wins, much sadness")
 
 
 while run:
