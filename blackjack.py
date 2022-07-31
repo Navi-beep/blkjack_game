@@ -12,14 +12,6 @@ class Card:
         show = '<['+self.rank +' ' 'of' ' ' + self.suit + ']>'
         return show 
 
-    def get_card_value(self):
-        if isinstance(self.rank, int):
-            return self.rank
-        elif self.rank in {'J', 'K', 'Q'}:
-            return 10
-        else:
-            return 11
-
 class Blackjack:
     def __init__(self):
         self.deck = self.create_deck()
