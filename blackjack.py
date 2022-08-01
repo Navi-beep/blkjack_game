@@ -150,6 +150,8 @@ while True:
 
     player_cards = Hand()
     player_cards.add_card(deck.deal())
+    
+    
     player_cards.add_card(deck.deal())
 
     dealer_cards = Hand()
