@@ -138,12 +138,12 @@ def player_bust(player, dealer):
     """)
 
 
-def dealer_bust(player, dealer):
-    print("dealer busts! you win!!! great success!")
-
 
 def tie(player, dealer):
     print("It's a push! Nobody wins, much sadness, such loss.")
+
+def dealer_bust(player, dealer):
+    print("dealer busts! you win!!! great success!")
 
 
 while True:
@@ -195,6 +195,9 @@ while True:
 
             elif dealer_cards.value > player_cards.value: 
                 dealer_win(player_cards, dealer_cards)
+
+            elif dealer_cards.value == player_cards.value:
+                tie(player_cards, dealer_cards)
 
             elif dealer_cards.value < player_cards.value: 
                 player_win(player_cards, dealer_cards)
