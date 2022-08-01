@@ -8,7 +8,7 @@ class Card:
         self.rank = rank
     
     def __repr__(self):
-        show = '<['+self.rank +' ' 'of' ' ' + self.suit + ']>'
+        show = '<['+self.rank +' ' 'of' ' ' + self.suit +  ']>'
         return show 
 
 class Makin_da_deck:
@@ -28,7 +28,7 @@ class Makin_da_deck:
     def truffle_shuffle(self):
         random.shuffle(self.deck)  
 
-    def deal(self):
+    def deal_one_card(self):
         one_card = self.deck.pop()
         return one_card 
 
@@ -149,14 +149,14 @@ while True:
     deck.truffle_shuffle()
 
     player_cards = Hand()
-    player_cards.add_card(deck.deal())
+    player_cards.add_card(deck.deal_one_card())
     
     
-    player_cards.add_card(deck.deal())
+    player_cards.add_card(deck.deal_one_card())
 
     dealer_cards = Hand()
-    dealer_cards.add_card(deck.deal())
-    dealer_cards.add_card(deck.deal())
+    dealer_cards.add_card(deck.deal_one_card())
+    dealer_cards.add_card(deck.deal_one_card())
 
 
     show_first_cards(player_cards, dealer_cards)
