@@ -63,6 +63,10 @@ def hit_or_stand(deck, hand):
             
             run = False
 
+        elif response == 't':
+            print("We can't wait all day here man, I got places to be!!")
+            run = False
+
         else:
             continue
 
