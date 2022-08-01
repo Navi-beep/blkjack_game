@@ -146,10 +146,8 @@ while True:
                 dealer_win(player_cards, dealer_cards)
 
             elif dealer_cards.value < player_cards.value: 
-                player_win(player_cards, dealer_cards) 
-
-            elif player_cards.value > 21:
-                player_bust(player_cards, dealer_cards)
+                player_win(player_cards, dealer_cards)
+                break 
 
     
     start_new_session = input("Do you wanna play this game again??? Hit 'y' or 'q' to quit game ")
@@ -158,9 +156,7 @@ while True:
         continue
 
     if start_new_session == 'cat':
-        print 
-
-
+        print(f"insert secret ASCII cat here")
 
     else start_new_session == 'q': 
         print("Have a great day! No more gambling. Go home. Go hang out with your cat or something.\n")
