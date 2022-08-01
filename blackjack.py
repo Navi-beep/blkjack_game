@@ -38,7 +38,7 @@ class Hand:
         self.cards = []
         self.value = 0
         
-    def add_card(self, card):
+    def add_card_and_value(self, card):
         self.cards.append(card)
         values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
          '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
@@ -47,7 +47,7 @@ class Hand:
 
 def hit(deck,hand):
     deck = Makin_da_deck()
-    hand.add_card(deck.deal_one_card())
+    hand.add_card_and_value(deck.deal_one_card())
     
 
 def hit_or_stand(deck, hand):
@@ -149,14 +149,14 @@ while True:
     deck.truffle_shuffle()
 
     player_cards = Hand()
-    player_cards.add_card(deck.deal_one_card())
+    player_cards.add_card_and_value(deck.deal_one_card())
     
     
-    player_cards.add_card(deck.deal_one_card())
+    player_cards.add_card_and_value(deck.deal_one_card())
 
     dealer_cards = Hand()
-    dealer_cards.add_card(deck.deal_one_card())
-    dealer_cards.add_card(deck.deal_one_card())
+    dealer_cards.add_card_and_value(deck.deal_one_card())
+    dealer_cards.add_card_and_value(deck.deal_one_card())
 
 
     show_first_cards(player_cards, dealer_cards)
