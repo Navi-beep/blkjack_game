@@ -53,12 +53,12 @@ def hit(deck,hand):
 def hit_or_stand(deck, hand):
 
     while True:
-        response = input("What do you want to do? hit or stand? Press 'h' or 's': ")
+        response = input("What do you want to do? hit or stand? Press 'h'/'hit' or 's'/'stand': ")
 
-        if response == 'h':
+        if response == 'h' or 'hit':
             hit(deck, hand)
 
-        elif response == 's': # not working, i need to fix this
+        elif response == 's' or 'stand': # not working, i need to fix this
             print("You are standing, it is the Dealer's turn to go!")
             
             run = False
@@ -79,7 +79,7 @@ def show_rest_of_cards(player, dealer):
     print("Player hand:", *player.cards, player.value)
 
 
-def player_win(player, dealer):
+def player_win(player, dealer): # also got this from https://emojicombos.com/memes
     print("You win!!")
     print(r"""
 ⡈⢿⣜⣿⣾⣿⣾⣛⣭⣿⣺⣯⡷⣌⣏⠩⣇⠀⠂⢱⠸⣿⣏⣀⣠⣤⣿⣧⣧⠠⠀⢀⣁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀
@@ -102,11 +102,37 @@ def player_win(player, dealer):
 
 
 def dealer_win(player, dealer):
-    print("dealer wins!! Nobody beats sub-zero")
+    print("dealer wins!! The house always wins!!")
 
 
 def player_bust(player, dealer):
-    print("player busts! you lose!!! Nobody beats sub-zero!!")
+    print("player busts! you lose!!! The HoUsE alwaYs wiNs!!")
+    print(r"""
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⢶⡲⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠑⡌⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢣⡀⣆⠀⠘⣎⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣟⣇⢀⠈⢾⣧⡀⠀⠀⠀⣀⣀⠀⠀⠀⣀⣀⡀⠀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⠞⣉⣲⣞⣿⡙⠋⠀⠀⣿⡏⠉⣉⣭⠁⠀⠉⠉⠁⠀⠄⠈⢁⣠⠞⠙⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢠⡴⠚⠉⠀⢉⣉⡛⠉⠉⢲⣶⣾⠟⣿⠀⢠⣒⠒⠒⢢⠄⠀⠀⠀⣀⡞⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣴⠾⢅⣀⣀⠤⠤⣄⣉⣀⡠⠔⠋⠀⢀⣴⠯⢤⣀⣈⡩⠥⠤⣀⡠⠤⣞⠁⠀⢀⠤⡀⠳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠻⣄⠀⠠⢴⡄⠀⠀⠀⠈⠷⣆⣐⣶⠟⠁⠀⠀⠀⣀⣤⠖⠒⡦⢄⡀⢘⡆⢀⠏⠀⡷⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀
+⠀⢨⣷⢁⣸⠄⢼⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣀⡨⠧⠴⢇⡀⠉⠸⡀⠈⠣⠴⠃⠀⢷⡀⠀⠀⠀⠀⠀⡠⢚⡅⡇⠀⠀⠀
+⠀⣧⣞⣩⣤⡀⠀⠈⠣⡀⠀⠀⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⢀⣀⡈⢆⠀⠱⡄⠀⠀⣤⡆⠀⢻⣿⠟⠉⠛⢿⣤⣿⠀⡇⣀⣀⠀
+⠀⢸⢾⣿⣿⡇⠀⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⢾⠀⠀⠀⠸⣿⣿⣿⡼⠀⠀⢸⠀⠀⠙⠃⠀⣸⠃⠀⠀⠀⢀⣿⡏⢀⣿⣿⠹⢳
+⠀⠈⠲⢍⡁⢀⣀⠴⠋⡠⢂⡄⠀⠀⠀⠀⠀⠈⠳⣤⣀⣀⣨⠽⢛⡁⠀⠀⠘⣆⠀⠀⢠⣾⡇⠀⠀⢀⣤⣾⣿⡇⢸⠛⡧⢆⡎
+⠀⠀⠀⠀⠹⣏⣁⠴⠊⠀⡸⠀⠀⠀⠀⠀⠀⠀⠀⠈⠒⠒⠒⠊⠉⠀⠀⠈⠀⠈⢢⠀⣿⠘⡷⠒⠒⠻⢷⣾⣿⣇⠘⠋⣀⡎⠀
+⠀⠀⠀⠀⣴⠉⠀⠀⣀⠞⠁⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄⠈⠛⠁⠀⣴⡀⠀⡇⠀⣿⣿⣟⠙⣿⠀
+⠀⠀⠀⠀⠈⠒⠚⡏⠁⠀⠀⠀⠀⠀⢀⣤⣶⣿⣿⣿⠿⠿⠟⠀⠀⠀⢀⣀⡀⠀⠀⠈⠓⣄⠀⠀⠉⠀⠀⣣⠀⢸⣿⣿⣶⣿⠇
+⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⢠⡾⣿⠿⠛⠋⣁⣀⠤⠤⠒⠃⠀⠀⠣⠄⠀⠀⠀⠀⠀⠸⣄⣀⡀⠀⠀⢧⠀⠀⣿⠿⠋⠁⠀
+⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀⠀⡰⠻⣉⠠⠔⠚⠯⣁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠏⠉⠀⠀⠀⢱⣴⣴⡾⠖⠊⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⢆⠀⢰⠁⠀⠀⠀⠀⠀⢀⣤⣿⣶⣶⣦⣤⠖⠒⠒⠒⠒⠒⠒⠒⢲⣶⣾⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⠇⠀⠀⠀⠀⠀⠀⢈⡿⢋⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠛⢿⢋⡿⠿⠿⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢏⣾⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣏⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣾⣿⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠿⠒⠲⣿⣧⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⠿⠿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣘⣿⣿⡿⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠛⠉⠀
+    """)
 
 
 def dealer_bust(player, dealer):
@@ -114,7 +140,7 @@ def dealer_bust(player, dealer):
 
 
 def tie(player, dealer):
-    print("It's a push! Nobody wins, much sadness")
+    print("It's a push! Nobody wins, much sadness, such loss.")
 
 
 while True:
@@ -137,16 +163,18 @@ while True:
 
         hit_or_stand(deck, player_cards)
         show_rest_of_cards(player_cards, dealer_cards)
+
+
         
         if player_cards.value == 21:
             print('Blackjack!!!!')
             player_win(player_cards, dealer_cards)
-            break
+            
 
         if dealer_cards.value == 21:
             print("Blackjack!!, but not for you")
             dealer_win(player_cards, dealer_cards)
-            break
+            
 
         elif player_cards.value > 21:
             player_bust(player_cards, dealer_cards)
@@ -157,11 +185,7 @@ while True:
 
             show_rest_of_cards(player_cards, dealer_cards)
 
-            if dealer_cards.value == 21:
-                print('Blackjack!, but not for you!')
-                dealer_win(player_cards, dealer_cards)
-
-            elif dealer_cards.value > 21:
+            if dealer_cards.value > 21:
                 dealer_bust(player_cards, dealer_cards)
 
             elif dealer_cards.value > player_cards.value: 
@@ -196,7 +220,7 @@ while True:
             
              """)
 
-    else: 
+    else: # got this from https://www.twitchquotes.com/
         print(r"""\
             ⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀
             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
