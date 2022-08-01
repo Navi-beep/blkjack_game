@@ -47,7 +47,7 @@ class Hand:
 
 def hit(deck,hand):
     deck = Makin_da_deck()
-    hand.add_card(deck.deal())
+    hand.add_card(deck.deal_one_card())
     
 
 def hit_or_stand(deck, hand):
@@ -63,8 +63,8 @@ def hit_or_stand(deck, hand):
             
             run = False
 
-        else:
-            continue
+        #else:
+        #    continue
 
         break
 
