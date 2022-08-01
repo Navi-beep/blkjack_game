@@ -63,8 +63,8 @@ def hit_or_stand(deck, hand):
             
             run = False
 
-        #else:
-        #    continue
+        else:
+            continue
 
         break
 
