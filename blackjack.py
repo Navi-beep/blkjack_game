@@ -1,8 +1,6 @@
 import random
 
 
-run = True
-
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -17,7 +15,7 @@ class Makin_da_deck:
         self.deck = self.create_deck()
 
     def create_deck(self):
-        suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+        suits = ['Hrts', 'Dmds', 'Spds', 'Clbs']
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
         deck = []
         for suit in suits:
@@ -39,7 +37,6 @@ class Hand:
         self.cards = []
         self.value = 0
         
-
     def add_card(self, card):
         self.cards.append(card)
         values = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
@@ -48,11 +45,11 @@ class Hand:
 
 
 def hit(deck,hand):
+    deck = Makin_da_deck()
     hand.add_card(deck.deal())
     
 
 def hit_or_stand(deck, hand):
-    global run
 
     while True:
         response = input("What do you want to do? hit or stand? Press 'h' or 's': ")
@@ -80,26 +77,27 @@ def show_rest_of_cards(player, dealer):
     print("Player hand:", *player.cards, player.value)
 
 
+def player_win(player, dealer):
+    print("You win!!")
+
+
+def dealer_win(player, dealer):
+    print("dealer wins!! Nobody beats sub-zero")
+
+
 def player_bust(player, dealer):
     print("player busts! you lose!!! Nobody beats sub-zero!!")
 
 
 def dealer_bust(player, dealer):
-    print("dealer busts! you win!!! great success! ")
+    print("dealer busts! you win!!! great success!")
 
-
-def player_wins(player, dealer):
-    print("You win!!")
-
-
-def dealer_wins(player, dealer):
-    print("dealer wins!! Nobody beats sub-zero")
 
 def tie(player, dealer):
     print("It's a push! Nobody wins, much sadness")
 
 
-while run:
+while True:
     
     deck = Makin_da_deck()
     deck.truffle_shuffle()
@@ -115,39 +113,40 @@ while run:
 
     show_first_cards(player_cards, dealer_cards)
 
-    while run:
+    while True:
 
         hit_or_stand(deck, player_cards)
         show_rest_of_cards(player_cards, dealer_cards)
-
+        
         if player_cards.value == 21:
             print('Blackjack!!!!')
-            player_wins(player_cards, dealer_cards)
-            
+            player_win(player_cards, dealer_cards)
+
+        if dealer_cards.value == 21:
+            print("Blackjack!!, but not for you")
+            dealer_win(player_cards, dealer_cards)
 
         elif player_cards.value > 21:
             player_bust(player_cards, dealer_cards)
             break
             
-
     if player_cards.value <= 21:
-        while dealer_cards.value < 17:
             hit(deck, dealer_cards)
 
             show_rest_of_cards(player_cards, dealer_cards)
 
             if dealer_cards.value == 21:
                 print('Blackjack!, but not for you!')
-                dealer_wins(player_cards, dealer_cards)
+                dealer_win(player_cards, dealer_cards)
 
             elif dealer_cards.value > 21:
                 dealer_bust(player_cards, dealer_cards)
 
             elif dealer_cards.value > player_cards.value: 
-                dealer_wins(player_cards, dealer_cards)
+                dealer_win(player_cards, dealer_cards)
 
             elif dealer_cards.value < player_cards.value: 
-                player_wins(player_cards, dealer_cards) 
+                player_win(player_cards, dealer_cards) 
 
             elif player_cards.value > 21:
                 player_bust(player_cards, dealer_cards)
@@ -158,6 +157,12 @@ while run:
         run = True
         continue
 
-    elif start_new_session == 'q': 
+    if start_new_session == 'cat':
+        print 
+
+
+
+    else start_new_session == 'q': 
         print("Have a great day! No more gambling. Go home. Go hang out with your cat or something.\n")
+        break 
         
