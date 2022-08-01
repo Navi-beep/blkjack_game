@@ -155,10 +155,39 @@ while True:
         run = True
         continue
 
-    if start_new_session == 'cat':
-        print(f"insert secret ASCII cat here")
+    if start_new_session == 'cat': #Art by Marcin Glinski
+        print(r"""\
+       ,
+       \`-._           __
+        \\  `-..____,.'  `.
+         :`.         /    \`.
+         :  )       :      : \
+          ;'        '   ;  |  :
+          )..      .. .:.`.;  :
+         /::...  .:::...   ` ;
+         ; _ '    __        /:\
+         `:o>   /\o_>      ;:. `.
+        `-`.__ ;   __..--- /:.   \
+        === \_/   ;=====_.':.     ;
+         ,/'`--'...`--....        ;
+              ;                    ;
+            .'                      ;
+          .'                        ;
+        .'     ..     ,      .       ;
+       :       ::..  /      ;::.     |
+      /      `.;::.  |       ;:..    ;
+     :         |:.   :       ;:.    ;
+     :         ::     ;:..   |.    ;
+      :       :;      :::....|     |
+      /\     ,/ \      ;:::::;     ;
+    .:. \:..|    :     ; '.--|     ;
+   ::.  :''  `-.,,;     ;'   ;     ;
+.-'. _.'\      / `;      \,__:      \
+`---'    `----'   ;      /    \,.,,,/
+                   `----`             
+            """)
 
-    else start_new_session == 'q': 
+    elif start_new_session == 'q': 
         print("Have a great day! No more gambling. Go home. Go hang out with your cat or something.\n")
         break 
         
